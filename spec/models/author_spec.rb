@@ -11,5 +11,15 @@ describe "New author model", type: :model do
     expect(author.name).to eq(first_name + " " + last_name)
 
   end
+
+  it "should be able to fill in author data and submit them" do
+    visit new_author_path
+    page.fill_in "author[last_name]", with: last_name
+    page fill_in "author[first_name]", with: first_name
+    page fill_in "author[homepage]", with: homepage
+
+    find('input[type="submit"]').click
+
+  end
 end
 
