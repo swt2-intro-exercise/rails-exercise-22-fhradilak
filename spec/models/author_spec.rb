@@ -20,6 +20,8 @@ describe "New author model", type: :model do
 
     find('input[type="submit"]').click
 
+    expect(Author.exists?(first_name: first_name, last_name: last_name, homepage: homepage)).to be_truthy
+
   end
 end
 
